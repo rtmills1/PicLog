@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4188EB01EBC70F900B92D8F /* ViewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4188EAF1EBC70F900B92D8F /* ViewNoteController.swift */; };
 		B419883F1EA0876100E6FA2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B419883E1EA0876100E6FA2D /* AppDelegate.swift */; };
 		B41988411EA0876200E6FA2D /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41988401EA0876200E6FA2D /* MainMenuController.swift */; };
 		B41988441EA0876200E6FA2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41988421EA0876200E6FA2D /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B4188EAF1EBC70F900B92D8F /* ViewNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNoteController.swift; sourceTree = "<group>"; };
 		B419883B1EA0876100E6FA2D /* PicLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B419883E1EA0876100E6FA2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B41988401EA0876200E6FA2D /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				B419883E1EA0876100E6FA2D /* AppDelegate.swift */,
 				B41988401EA0876200E6FA2D /* MainMenuController.swift */,
 				B44714CA1EAF1F190065EF58 /* NewNoteController.swift */,
+				B4188EAF1EBC70F900B92D8F /* ViewNoteController.swift */,
 				B41988421EA0876200E6FA2D /* Main.storyboard */,
 				B41988451EA0876200E6FA2D /* Assets.xcassets */,
 				B41988471EA0876200E6FA2D /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4188EB01EBC70F900B92D8F /* ViewNoteController.swift in Sources */,
 				B41988411EA0876200E6FA2D /* MainMenuController.swift in Sources */,
 				B419883F1EA0876100E6FA2D /* AppDelegate.swift in Sources */,
 				B44714CB1EAF1F190065EF58 /* NewNoteController.swift in Sources */,
