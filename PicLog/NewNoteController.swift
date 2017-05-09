@@ -8,16 +8,31 @@
 
 import UIKit
 
+@available(iOS 10.0, *)
 class NewNoteController: UIViewController {
     
+    @IBOutlet weak var taskTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    @IBAction func buttonTapped(_ sender: UIBarButtonItem) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let task = Task(context: context)
+        task.name = taskTextField.text!
+        // Save the data to coredata
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        let _ = navigationController?.popViewController(animated: true)
     }
     
     

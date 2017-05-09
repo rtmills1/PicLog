@@ -13,6 +13,7 @@
 		B41988441EA0876200E6FA2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41988421EA0876200E6FA2D /* Main.storyboard */; };
 		B41988461EA0876200E6FA2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B41988451EA0876200E6FA2D /* Assets.xcassets */; };
 		B41988491EA0876200E6FA2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41988471EA0876200E6FA2D /* LaunchScreen.storyboard */; };
+		B419B1391EC1BE66008FAACB /* PicLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B419B1371EC1BE66008FAACB /* PicLog.xcdatamodeld */; };
 		B44714CB1EAF1F190065EF58 /* NewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44714CA1EAF1F190065EF58 /* NewNoteController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		B41988451EA0876200E6FA2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B41988481EA0876200E6FA2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B419884A1EA0876200E6FA2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B419B1381EC1BE66008FAACB /* PicLog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PicLog.xcdatamodel; sourceTree = "<group>"; };
 		B44714CA1EAF1F190065EF58 /* NewNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				B44714CA1EAF1F190065EF58 /* NewNoteController.swift */,
 				B4188EAF1EBC70F900B92D8F /* ViewNoteController.swift */,
 				B41988421EA0876200E6FA2D /* Main.storyboard */,
+				B419B1371EC1BE66008FAACB /* PicLog.xcdatamodeld */,
 				B41988451EA0876200E6FA2D /* Assets.xcassets */,
 				B41988471EA0876200E6FA2D /* LaunchScreen.storyboard */,
 				B419884A1EA0876200E6FA2D /* Info.plist */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4188EB01EBC70F900B92D8F /* ViewNoteController.swift in Sources */,
+				B419B1391EC1BE66008FAACB /* PicLog.xcdatamodeld in Sources */,
 				B41988411EA0876200E6FA2D /* MainMenuController.swift in Sources */,
 				B419883F1EA0876100E6FA2D /* AppDelegate.swift in Sources */,
 				B44714CB1EAF1F190065EF58 /* NewNoteController.swift in Sources */,
@@ -315,6 +319,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B419B1371EC1BE66008FAACB /* PicLog.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B419B1381EC1BE66008FAACB /* PicLog.xcdatamodel */,
+			);
+			currentVersion = B419B1381EC1BE66008FAACB /* PicLog.xcdatamodel */;
+			path = PicLog.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B41988331EA0876100E6FA2D /* Project object */;
 }
