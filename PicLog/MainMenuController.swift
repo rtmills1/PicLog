@@ -26,7 +26,7 @@ class MainMenuController: UITableViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var tasks: [Task] = []
+    var notes: [Note] = []
     
     
     
@@ -36,16 +36,16 @@ class MainMenuController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        return notes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        let task = tasks[indexPath.row]
+        let note = notes[indexPath.row]
         
-        if let myName = task.name {
-            cell.textLabel?.text = myName
+        if let myLog = note.log {
+            cell.textLabel?.text = myLog
         }
         
         return cell
@@ -53,7 +53,7 @@ class MainMenuController: UITableViewController {
     
     func getData() {
         do {
-            tasks = try context.fetch(Task.fetchRequest())
+            notes = try context.fetch(Note.fetchRequest())
         }
         catch {
             print("Fetching Failed")
@@ -62,12 +62,12 @@ class MainMenuController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let task = tasks[indexPath.row]
-            context.delete(task)
+            let note = notes[indexPath.row]
+            context.delete(note)
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
             do {
-                tasks = try context.fetch(Task.fetchRequest())
+                notes = try context.fetch(Note.fetchRequest())
             }
             catch {
                 print("Fetching Failed")

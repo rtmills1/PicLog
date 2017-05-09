@@ -11,7 +11,7 @@ import UIKit
 @available(iOS 10.0, *)
 class NewNoteController: UIViewController {
     
-    @IBOutlet weak var taskTextField: UITextField!
+    @IBOutlet weak var noteTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,8 +27,8 @@ class NewNoteController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIBarButtonItem) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let task = Task(context: context)
-        task.name = taskTextField.text!
+        let note = Note(context: context)
+        note.log = noteTextField.text!
         // Save the data to coredata
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()

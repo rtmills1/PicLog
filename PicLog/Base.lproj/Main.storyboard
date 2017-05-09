@@ -78,7 +78,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="NO2-Vt-tI7"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="taskTextField" destination="aP7-ve-oBi" id="auu-Tp-A1F"/>
+                        <outlet property="noteTextField" destination="aP7-ve-oBi" id="Gjg-Wy-b8b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="19f-IW-4Nh" userLabel="First Responder" sceneMemberID="firstResponder"/>
