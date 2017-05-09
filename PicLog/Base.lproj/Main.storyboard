@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -48,6 +50,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9lE-qf-HDE">
+                                <rect key="frame" x="21" y="141" width="333" height="168"/>
+                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9lE-qf-HDE" secondAttribute="height" multiplier="111:56" id="ETI-iI-NbM"/>
+                                </constraints>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9G-SG-CZz">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -59,20 +68,25 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lE-qf-HDE">
-                                <rect key="frame" x="21" y="266" width="333" height="168"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Note..." borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aP7-ve-oBi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Note..." borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aP7-ve-oBi">
                                 <rect key="frame" x="21" y="72" width="333" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0ps-wM-gF4"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aP7-ve-oBi" firstAttribute="centerX" secondItem="2ZG-9F-S8q" secondAttribute="centerX" id="F3o-36-Nxc"/>
+                            <constraint firstItem="aP7-ve-oBi" firstAttribute="leading" secondItem="2ZG-9F-S8q" secondAttribute="leadingMargin" constant="5" id="IQd-p8-xaQ"/>
+                            <constraint firstItem="9lE-qf-HDE" firstAttribute="leading" secondItem="aP7-ve-oBi" secondAttribute="leading" id="Jb6-x9-kx3"/>
+                            <constraint firstItem="9lE-qf-HDE" firstAttribute="trailing" secondItem="aP7-ve-oBi" secondAttribute="trailing" id="LtV-F0-2gL"/>
+                            <constraint firstItem="9lE-qf-HDE" firstAttribute="top" secondItem="aP7-ve-oBi" secondAttribute="bottom" constant="39" id="VDq-YM-b1v"/>
+                            <constraint firstItem="aP7-ve-oBi" firstAttribute="top" secondItem="Ie3-hM-Qg9" secondAttribute="bottom" constant="8" symbolic="YES" id="qyF-hR-jiQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Log" id="5Fa-gV-4Np">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="NO2-Vt-tI7"/>
