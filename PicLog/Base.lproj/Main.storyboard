@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OJE-qP-wBy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OJE-qP-wBy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -31,7 +31,11 @@
                                 <segue destination="9aA-Z5-RQE" kind="show" id="cso-LS-Jfh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="xJU-2w-t0s"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="xJU-2w-t0s">
+                            <connections>
+                                <segue destination="4jj-HE-vyg" kind="showDetail" id="iOK-Hb-nXk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAs-Ma-nu5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -89,7 +93,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Log" id="5Fa-gV-4Np">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="NO2-Vt-tI7"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="NO2-Vt-tI7">
+                            <connections>
+                                <segue destination="4jj-HE-vyg" kind="showDetail" id="aud-JT-fS6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="noteTextField" destination="aP7-ve-oBi" id="Gjg-Wy-b8b"/>
@@ -160,5 +168,86 @@
             </objects>
             <point key="canvasLocation" x="69.599999999999994" y="-537.48125937031489"/>
         </scene>
+        <!--Camera Controller-->
+        <scene sceneID="VGc-Cz-fKh">
+            <objects>
+                <viewController id="d6A-8L-PHM" customClass="CameraController" customModule="PicLog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oGn-a1-fXv"/>
+                        <viewControllerLayoutGuide type="bottom" id="DWG-aA-Vbb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sqb-Wp-pxX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6Us-mm-D4x">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="oDL-Md-ruX">
+                            <connections>
+                                <action selector="takePhoto:" destination="d6A-8L-PHM" id="VSu-fI-1uJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2oT-Ho-PM1" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2049" y="-1272"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="hZI-CI-JMy">
+            <objects>
+                <viewController storyboardIdentifier="PhotoVC" id="hKP-ZS-WF4" customClass="PhotoViewController" customModule="PicLog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eG6-n5-LiR"/>
+                        <viewControllerLayoutGuide type="bottom" id="oFP-3f-WD6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q0a-IV-h0H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMI-Zn-tdf">
+                                <rect key="frame" x="22" y="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="goBack:" destination="hKP-ZS-WF4" eventType="touchUpInside" id="078-ZJ-U3c"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z99-gZ-oRy">
+                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Z99-gZ-oRy" id="mRo-Zc-Vee"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CMy-h1-MjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2938" y="-1272"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8O2-WJ-6b5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4jj-HE-vyg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5i9-Fn-YFZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="d6A-8L-PHM" kind="relationship" relationship="rootViewController" id="rXP-7P-IF4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y0Q-K3-Pk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1009" y="-1272"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aud-JT-fS6"/>
+    </inferredMetricsTieBreakers>
 </document>
