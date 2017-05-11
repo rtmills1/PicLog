@@ -15,7 +15,6 @@
 		B41988491EA0876200E6FA2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41988471EA0876200E6FA2D /* LaunchScreen.storyboard */; };
 		B419B1391EC1BE66008FAACB /* PicLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B419B1371EC1BE66008FAACB /* PicLog.xcdatamodeld */; };
 		B44714CB1EAF1F190065EF58 /* NewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44714CA1EAF1F190065EF58 /* NewNoteController.swift */; };
-		C615FE991EC4430E00105198 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615FE981EC4430E00105198 /* PhotoViewController.swift */; };
 		C69E14E61EC43D9300E23F04 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69E14E51EC43D9300E23F04 /* CameraController.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		B419884A1EA0876200E6FA2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B419B1381EC1BE66008FAACB /* PicLog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PicLog.xcdatamodel; sourceTree = "<group>"; };
 		B44714CA1EAF1F190065EF58 /* NewNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteController.swift; sourceTree = "<group>"; };
-		C615FE981EC4430E00105198 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoViewController.swift; path = ../../../.Trash/PhotoViewController.swift; sourceTree = "<group>"; };
 		C69E14E51EC43D9300E23F04 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +64,6 @@
 			children = (
 				B419883E1EA0876100E6FA2D /* AppDelegate.swift */,
 				C69E14E51EC43D9300E23F04 /* CameraController.swift */,
-				C615FE981EC4430E00105198 /* PhotoViewController.swift */,
 				B41988401EA0876200E6FA2D /* MainMenuController.swift */,
 				B44714CA1EAF1F190065EF58 /* NewNoteController.swift */,
 				B4188EAF1EBC70F900B92D8F /* ViewNoteController.swift */,
@@ -156,7 +153,6 @@
 				B419B1391EC1BE66008FAACB /* PicLog.xcdatamodeld in Sources */,
 				C69E14E61EC43D9300E23F04 /* CameraController.swift in Sources */,
 				B41988411EA0876200E6FA2D /* MainMenuController.swift in Sources */,
-				C615FE991EC4430E00105198 /* PhotoViewController.swift in Sources */,
 				B419883F1EA0876100E6FA2D /* AppDelegate.swift in Sources */,
 				B44714CB1EAF1F190065EF58 /* NewNoteController.swift in Sources */,
 			);
