@@ -110,7 +110,7 @@
             </objects>
             <point key="canvasLocation" x="2048.8000000000002" y="-537.48125937031489"/>
         </scene>
-        <!--Log-->
+        <!--View Log-->
         <scene sceneID="zFt-6b-vjL">
             <objects>
                 <viewController id="KIG-yZ-2A8" customClass="ViewNoteController" customModule="PicLog" customModuleProvider="target" sceneMemberID="viewController">
@@ -137,7 +137,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Log" id="jdg-ND-nmb">
+                    <navigationItem key="navigationItem" title="View Log" id="jdg-ND-nmb">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="OKN-3p-511"/>
                     </navigationItem>
                 </viewController>
@@ -163,7 +163,7 @@
             </objects>
             <point key="canvasLocation" x="69.599999999999994" y="-537.48125937031489"/>
         </scene>
-        <!--Camera Controller-->
+        <!--Camera-->
         <scene sceneID="VGc-Cz-fKh">
             <objects>
                 <viewController id="d6A-8L-PHM" customClass="CameraController" customModule="PicLog" customModuleProvider="target" sceneMemberID="viewController">
@@ -176,7 +176,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6Us-mm-D4x">
+                    <navigationItem key="navigationItem" title="Camera" id="6Us-mm-D4x">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="oDL-Md-ruX">
                             <connections>
                                 <action selector="takePhoto:" destination="d6A-8L-PHM" id="VSu-fI-1uJ"/>
@@ -190,6 +190,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hXq-W6-Yr6"/>
+        <segue reference="FU6-kV-Vqo"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="0.56558893202857075" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
