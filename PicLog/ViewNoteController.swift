@@ -10,9 +10,12 @@ import UIKit
 
 class ViewNoteController: UIViewController {
     
+    var viewNote: Note?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -20,5 +23,6 @@ class ViewNoteController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     
 }

@@ -75,6 +75,26 @@ class MainMenuController: UITableViewController {
         }
         tableView.reloadData()
     }
+    
+    
+   
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "mySegue", sender:self)
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == "mySegue"){
+            //prepare for segue to the details view controller
+            
+            if let detailsVC = sender?.destination as? ViewNoteController {
+                let indexPath = self.tableView.indexPathForSelectedRow
+                detailsVC.viewNote = self.notes[indexPath!.row]
+            }
+        }
+    }
+
 }
 
     
