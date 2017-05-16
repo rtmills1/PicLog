@@ -1,9 +1,9 @@
 //
-//  ViewController.swift
-//  CustomCamera
+//  CameraController.swift
+//  PicLog
 //
-//  Created by Brian Advent on 24/01/2017.
-//  Copyright © 2017 Brian Advent. All rights reserved.
+//  Created by Daniel Catania on 14/4/17.
+//  Copyright © 2017 Riley Mills & Daniel Catania. All rights reserved.
 //
 
 import UIKit
@@ -11,8 +11,8 @@ import AVFoundation
 
 class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    let captureSession = AVCaptureSession()
-    var previewLayer:CALayer!
+    let capture = AVCaptureSession()
+    var preview:CALayer!
     
     var captureDevice:AVCaptureDevice!
     
@@ -24,12 +24,12 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        prepareCamera()
+        prepare()
     }
     
     
-    func prepareCamera() {
-        captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+    func prepare() {
+        capture.sessionPreset = AVCaptureSessionPresetPhoto
         
         if #available(iOS 10.0, *) {
             if let availableDevices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: .back).devices {
@@ -46,29 +46,29 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
             
-            captureSession.addInput(captureDeviceInput)
+            capture.addInput(captureDeviceInput)
             
         }catch {
             print(error.localizedDescription)
         }
         
         
-        if let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession) {
-            self.previewLayer = previewLayer
-            self.view.layer.addSublayer(self.previewLayer)
-            self.previewLayer.frame = self.view.layer.frame
-            captureSession.startRunning()
+        if let previewLayer = AVCaptureVideoPreviewLayer(session: capture) {
+            self.preview = previewLayer
+            self.view.layer.addSublayer(self.preview)
+            self.preview.frame = self.view.layer.frame
+            capture.startRunning()
             
             let dataOutput = AVCaptureVideoDataOutput()
             dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString):NSNumber(value:kCVPixelFormatType_32BGRA)]
             
             dataOutput.alwaysDiscardsLateVideoFrames = true
             
-            if captureSession.canAddOutput(dataOutput) {
-                captureSession.addOutput(dataOutput)
+            if capture.canAddOutput(dataOutput) {
+                capture.addOutput(dataOutput)
             }
             
-            captureSession.commitConfiguration()
+            capture.commitConfiguration()
             
             
             let queue = DispatchQueue(label: "com.brianadvent.captureQueue")
@@ -83,6 +83,7 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
         
     }
     
+    /*
     func getImageFromSampleBuffer (buffer:CMSampleBuffer) -> UIImage? {
         if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {
             let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
@@ -98,13 +99,14 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
         
         return nil
     }
+    */
     
     func stopCaptureSession () {
-        self.captureSession.stopRunning()
+        self.capture.stopRunning()
         
-        if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
+        if let inputs = capture.inputs as? [AVCaptureDeviceInput] {
             for input in inputs {
-                self.captureSession.removeInput(input)
+                self.capture.removeInput(input)
             }
         }
         
