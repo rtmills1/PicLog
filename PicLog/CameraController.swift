@@ -1,22 +1,28 @@
 //
-//  ViewController.swift
-//  CustomCamera
+//  CameraController.swift
+//  PicLog
 //
-//  Created by Brian Advent on 24/01/2017.
-//  Copyright © 2017 Brian Advent. All rights reserved.
+//  Created by Daniel Catania on 14/4/17.
+//  Copyright © 2017 Riley Mills & Daniel Catania. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 
+// Captures frames from the apple device and sends it off to an action script
 class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    let captureSession = AVCaptureSession()
-    var previewLayer:CALayer!
+    // Variables to allow camera function
     
+    // Allows the application to perfrom online/ offline capture
+    let capture = AVCaptureSession()
+
+    var preview:CALayer!
+    
+    // Represents a physical capture
     var captureDevice:AVCaptureDevice!
     
-    var takePhoto = false
+    var takeImage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +30,12 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        prepareCamera()
+        prepare()
     }
     
-    
-    func prepareCamera() {
-        captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+    // Preparing the camera to take images
+    func prepare() {
+        capture.sessionPreset = AVCaptureSessionPresetPhoto
         
         if #available(iOS 10.0, *) {
             if let availableDevices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: .back).devices {
@@ -37,52 +43,44 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
                 beginSession()
             }
         } else {
-            // Fallback on earlier versions
+           
         }
-        
     }
     
+    // Begins the capturing and functionality of the camera
     func beginSession () {
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
             
-            captureSession.addInput(captureDeviceInput)
+            capture.addInput(captureDeviceInput)
             
         }catch {
             print(error.localizedDescription)
         }
         
-        
-        if let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession) {
-            self.previewLayer = previewLayer
-            self.view.layer.addSublayer(self.previewLayer)
-            self.previewLayer.frame = self.view.layer.frame
-            captureSession.startRunning()
+        if let previewLayer = AVCaptureVideoPreviewLayer(session: capture) {
+            self.preview = previewLayer
+            self.view.layer.addSublayer(self.preview)
+            self.preview.frame = self.view.layer.frame
+            capture.startRunning()
             
             let dataOutput = AVCaptureVideoDataOutput()
             dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString):NSNumber(value:kCVPixelFormatType_32BGRA)]
             
             dataOutput.alwaysDiscardsLateVideoFrames = true
             
-            if captureSession.canAddOutput(dataOutput) {
-                captureSession.addOutput(dataOutput)
+            if capture.canAddOutput(dataOutput) {
+                capture.addOutput(dataOutput)
             }
             
-            captureSession.commitConfiguration()
+            capture.commitConfiguration()
             
-            
-            let queue = DispatchQueue(label: "com.brianadvent.captureQueue")
+            let queue = DispatchQueue(label: "com.danielcatania/rileymills.captureQueue")
             dataOutput.setSampleBufferDelegate(self, queue: queue)
-    
         }
-        
     }
     
-    @IBAction func takePhoto(_ sender: Any) {
-        takePhoto = true
-        
-    }
-    
+    /*
     func getImageFromSampleBuffer (buffer:CMSampleBuffer) -> UIImage? {
         if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {
             let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
@@ -93,29 +91,30 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
             if let image = context.createCGImage(ciImage, from: imageRect) {
                 return UIImage(cgImage: image, scale: UIScreen.main.scale, orientation: .right)
             }
-            
         }
-        
         return nil
     }
+    */
     
-    func stopCaptureSession () {
-        self.captureSession.stopRunning()
-        
-        if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
-            for input in inputs {
-                self.captureSession.removeInput(input)
-            }
-        }
-        
+    // Taking the photo
+    @IBAction func takeImage(_ sender: Any) {
+        takeImage = true
     }
     
+    // Stops the camera function
+    func stopCaptureSession () {
+        self.capture.stopRunning()
+        
+        if let inputs = capture.inputs as? [AVCaptureDeviceInput] {
+            for input in inputs {
+                self.capture.removeInput(input)
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }
 

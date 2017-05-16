@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  PicLog
 //
-//  Created by Riley Mills on 14/4/17.
+//  Created by Riley Mills and Daniel Catania on 14/4/17.
 //  Copyright © 2017 Riley Mills & Daniel Catania. All rights reserved.
 //
 
