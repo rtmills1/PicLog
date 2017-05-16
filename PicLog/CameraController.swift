@@ -9,14 +9,20 @@
 import UIKit
 import AVFoundation
 
+// Captures frames from the apple device and sends it off to an action script
 class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    let capture = AVCaptureSession()
-    var preview:CALayer!
+    // Variables to allow camera function
     
+    // Allows the application to perfrom online/ offline capture
+    let capture = AVCaptureSession()
+
+    //var preview:CALayer!
+    
+    // Represents a physical capture
     var captureDevice:AVCaptureDevice!
     
-    var takePhoto = false
+    var takeImage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +33,7 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
         prepare()
     }
     
-    
+    // Preparing the camera to take images
     func prepare() {
         capture.sessionPreset = AVCaptureSessionPresetPhoto
         
@@ -37,11 +43,12 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
                 beginSession()
             }
         } else {
-            // Fallback on earlier versions
+           
         }
         
     }
     
+    // Begins the capturing and functionality of the camera
     func beginSession () {
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
@@ -52,7 +59,7 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
             print(error.localizedDescription)
         }
         
-        
+        /*
         if let previewLayer = AVCaptureVideoPreviewLayer(session: capture) {
             self.preview = previewLayer
             self.view.layer.addSublayer(self.preview)
@@ -71,15 +78,11 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
             capture.commitConfiguration()
             
             
-            let queue = DispatchQueue(label: "com.brianadvent.captureQueue")
+            let queue = DispatchQueue(label: "com.danielcatania/rileymills.captureQueue")
             dataOutput.setSampleBufferDelegate(self, queue: queue)
     
         }
-        
-    }
-    
-    @IBAction func takePhoto(_ sender: Any) {
-        takePhoto = true
+         */
         
     }
     
@@ -101,6 +104,13 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
     }
     */
     
+    // Taking the photo
+    @IBAction func takeImage(_ sender: Any) {
+        takeImage = true
+        
+    }
+    
+    // Stops the camera function
     func stopCaptureSession () {
         self.capture.stopRunning()
         
@@ -111,7 +121,6 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
         }
         
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
