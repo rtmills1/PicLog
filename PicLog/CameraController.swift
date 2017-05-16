@@ -17,7 +17,7 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
     // Allows the application to perfrom online/ offline capture
     let capture = AVCaptureSession()
 
-    //var preview:CALayer!
+    var preview:CALayer!
     
     // Represents a physical capture
     var captureDevice:AVCaptureDevice!
@@ -45,7 +45,6 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
         } else {
            
         }
-        
     }
     
     // Begins the capturing and functionality of the camera
@@ -59,7 +58,6 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
             print(error.localizedDescription)
         }
         
-        /*
         if let previewLayer = AVCaptureVideoPreviewLayer(session: capture) {
             self.preview = previewLayer
             self.view.layer.addSublayer(self.preview)
@@ -77,13 +75,9 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
             
             capture.commitConfiguration()
             
-            
             let queue = DispatchQueue(label: "com.danielcatania/rileymills.captureQueue")
             dataOutput.setSampleBufferDelegate(self, queue: queue)
-    
         }
-         */
-        
     }
     
     /*
@@ -97,9 +91,7 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
             if let image = context.createCGImage(ciImage, from: imageRect) {
                 return UIImage(cgImage: image, scale: UIScreen.main.scale, orientation: .right)
             }
-            
         }
-        
         return nil
     }
     */
@@ -107,7 +99,6 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
     // Taking the photo
     @IBAction func takeImage(_ sender: Any) {
         takeImage = true
-        
     }
     
     // Stops the camera function
@@ -119,14 +110,11 @@ class CameraController: UIViewController, AVCaptureVideoDataOutputSampleBufferDe
                 self.capture.removeInput(input)
             }
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }
 
