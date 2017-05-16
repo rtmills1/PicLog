@@ -21,16 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PicLog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KN0-Nf-7Dc">
-                                <rect key="frame" x="161" y="323" width="52" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="52" id="1oM-UG-CCH"/>
-                                    <constraint firstAttribute="height" constant="21" id="xcV-o4-0wd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="8xc-ah-jk6">
                                 <rect key="frame" x="114" y="187" width="146" height="128"/>
                                 <constraints>
@@ -38,10 +28,20 @@
                                     <constraint firstAttribute="height" constant="128" id="uOl-x3-TdT"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PicLog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KN0-Nf-7Dc">
+                                <rect key="frame" x="157" y="323" width="61" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="1oM-UG-CCH"/>
+                                    <constraint firstAttribute="height" constant="21" id="xcV-o4-0wd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8xc-ah-jk6" firstAttribute="centerX" secondItem="KN0-Nf-7Dc" secondAttribute="centerX" id="4Sh-do-fM5"/>
+                            <constraint firstItem="8xc-ah-jk6" firstAttribute="centerX" secondItem="KN0-Nf-7Dc" secondAttribute="centerX" constant="-0.5" id="4Sh-do-fM5"/>
                             <constraint firstItem="8xc-ah-jk6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DRd-bf-MW2"/>
                             <constraint firstItem="KN0-Nf-7Dc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="X1h-fX-g8f"/>
                             <constraint firstItem="KN0-Nf-7Dc" firstAttribute="top" secondItem="8xc-ah-jk6" secondAttribute="bottom" constant="8" symbolic="YES" id="tN6-hg-RrW"/>
@@ -56,4 +56,5 @@
     <resources>
         <image name="Icon-60" width="16" height="16"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.56558893200000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
