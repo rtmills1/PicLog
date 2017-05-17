@@ -10,7 +10,8 @@ import UIKit
 
 @available(iOS 10.0, *)
 class MainMenuController: UITableViewController {
-
+    
+//This CoreData method I learnt from Bob Lee URL:https://blog.bobthedeveloper.io/beginners-guide-to-core-data-in-swift-3-85292ef4edd
     
     override func viewDidLoad() {
         super.viewDidLoad()
