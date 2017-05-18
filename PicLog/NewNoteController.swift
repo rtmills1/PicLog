@@ -12,6 +12,7 @@ import MobileCoreServices
 @available(iOS 10.0, *)
 class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // Declaring variable for the ImageViews
     @IBOutlet weak var imageView: UIImageView!
     var newMedia: Bool?
     
@@ -39,6 +40,7 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
         let _ = navigationController?.popViewController(animated: true)
     }
     
+    // Uses the devces camera roll, allwoing the users to access photos from there device
     @IBAction func useCameraRoll(_ sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(
@@ -56,6 +58,8 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
     }
     
+    // Defines methods that your delegate object must implement to interact with the image picker interface.
+    // Allows the user to pick an image in camera roll and display it in view controller with an image view
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
@@ -78,14 +82,15 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
     }
     
+    // Error messages for user if they incorrectly upload an image or fail to follow procedure
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
         
         if error != nil {
-            let alert = UIAlertController(title: "Save Failed",
-                                          message: "Failed to save image",
+            let alert = UIAlertController(title: "Fail",
+                                          message: "Image failed",
                                           preferredStyle: UIAlertControllerStyle.alert)
             
-            let cancelAction = UIAlertAction(title: "OK",
+            let cancelAction = UIAlertAction(title: "Okay",
                                              style: .cancel, handler: nil)
             
             alert.addAction(cancelAction)

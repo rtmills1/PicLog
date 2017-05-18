@@ -11,9 +11,9 @@ import MobileCoreServices
 
 class CameraController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var imageView: UIImageView!
     var newMedia: Bool?
     
+    // Allows the user to use the camera function, allwoing them to take photos and save them to camera roll
     @IBAction func useCamera(_ sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(
