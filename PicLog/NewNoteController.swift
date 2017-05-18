@@ -12,6 +12,7 @@ import MobileCoreServices
 @available(iOS 10.0, *)
 class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
     @IBOutlet weak var imageView: UIImageView!
     var newMedia: Bool?
     
@@ -39,6 +40,8 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
         //Accesses the user text from the textfield
         note.log = noteTextField.text!
         // Save the data to coredata
+        
+       
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         let _ = navigationController?.popViewController(animated: true)
@@ -72,6 +75,7 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
                 as! UIImage
             
             imageView.image = image
+           
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image, self,

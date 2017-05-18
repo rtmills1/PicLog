@@ -7,6 +7,7 @@
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="log" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
     </entity>
     <entity name="Thumbnail" representedClassName="Thumbnail" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -14,8 +15,8 @@
         <relationship name="fullRes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FullRes" inverseName="thumbnail" inverseEntity="FullRes" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Note" positionX="-99" positionY="-21" width="128" height="75"/>
-        <element name="Thumbnail" positionX="16" positionY="99" width="128" height="90"/>
         <element name="FullRes" positionX="-200" positionY="81" width="128" height="75"/>
+        <element name="Note" positionX="-99" positionY="-21" width="128" height="90"/>
+        <element name="Thumbnail" positionX="16" positionY="99" width="128" height="90"/>
     </elements>
 </model>
