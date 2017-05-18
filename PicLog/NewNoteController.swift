@@ -78,7 +78,7 @@ import MobileCoreServices
 @available(iOS 10.0, *)
 class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+    // Declaring variable for the ImageViews
     @IBOutlet weak var imageView: UIImageView!
     var newMedia: Bool?
     

@@ -12,6 +12,7 @@ import UIKit
 class MainMenuController: UITableViewController {
     
 //This CoreData method I learnt from Bob Lee URL:https://blog.bobthedeveloper.io/beginners-guide-to-core-data-in-swift-3-85292ef4edd
+    var valueToPass:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,26 +78,36 @@ class MainMenuController: UITableViewController {
         tableView.reloadData()
     }
     
-    
    
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "mySegue", sender:self)
-    }
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected cell #\(indexPath.row)!")
+        
+        let IndexPath = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRow(at: IndexPath)! as UITableViewCell
+        
+        valueToPass = currentCell.textLabel?.text
+        
+        performSegue(withIdentifier: "mySegue", sender:self)
+        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "mySegue"){
             //prepare for segue to the details view controller
+            if let viewController = segue.destination as? ViewNoteController{
             
-            if let detailsVC = sender?.destination as? ViewNoteController {
-                let indexPath = self.tableView.indexPathForSelectedRow
-                detailsVC.viewNote = self.notes[indexPath!.row]
+            viewController.passedValue = valueToPass
+            print("current cell: \(valueToPass)")
+            
             }
         }
     }
-
+    
 }
+
+
 
     
     
