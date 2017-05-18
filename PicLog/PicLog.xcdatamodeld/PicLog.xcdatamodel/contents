@@ -16,7 +16,7 @@
     </entity>
     <elements>
         <element name="FullRes" positionX="-200" positionY="81" width="128" height="75"/>
-        <element name="Note" positionX="-99" positionY="-21" width="128" height="90"/>
+        <element name="Note" positionX="-99" positionY="-21" width="128" height="88"/>
         <element name="Thumbnail" positionX="16" positionY="99" width="128" height="90"/>
     </elements>
 </model>

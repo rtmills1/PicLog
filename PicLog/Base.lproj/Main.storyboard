@@ -178,6 +178,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="OKN-3p-511"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="A8U-D7-E3h" id="Uy0-TZ-4Qn"/>
                         <outlet property="noteLabel" destination="LPi-A3-6ID" id="hDZ-BR-f2g"/>
                     </connections>
                 </viewController>

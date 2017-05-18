@@ -78,12 +78,15 @@ import MobileCoreServices
 @available(iOS 10.0, *)
 class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    
     // Declaring variable for the ImageViews
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var imageView: UIImageView!
     var newMedia: Bool?
     
     //Textfield that captures user inputs note into
     @IBOutlet weak var noteTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,17 +104,37 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBAction func buttonTapped(_ sender: UIBarButtonItem) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
+        
         //Hold note value that will be saved into the Note Entity in CoreData
         let note = Note(context: context)
         //Accesses the user text from the textfield
         note.log = noteTextField.text!
         // Save the data to coredata
         
+        let img = UIImage(named: "CameraIcon.png")
+        let imgData = UIImageJPEGRepresentation(img!, 1)
+        note.setValue(imgData, forKey: "photo")
+        //imgData = UIImage(data: Note.image!)
        
         
+        //let imageData = UIImagePNGRepresentation(imageView.image!)
+        //let compresedImage = UIImage(data: imageData!)
+        //UIImageWriteToSavedPhotosAlbum(compresedImage!, nil, nil, nil)
+        
+        
+        //note.setValue(compresedImage, forKey: "photo")
+        //let alert = UIAlertController(title: "Saved", message: "Your image has been saved", preferredStyle: .alert)
+        //let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        //alert.addAction(okAction)
+        //self.present(alert, animated: true, completion: nil)
+        
+        
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
+       
         let _ = navigationController?.popViewController(animated: true)
     }
+    
+  
     
     // Uses the devces camera roll, allwoing the users to access photos from there device
     @IBAction func useCameraRoll(_ sender: AnyObject) {
@@ -144,16 +167,18 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
                 as! UIImage
             
             imageView.image = image
-           
             
+
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image, self,
                                                #selector(NewNoteController.image(image:didFinishSavingWithError:contextInfo:)), nil)
             } else if mediaType.isEqual(to: kUTTypeMovie as String) {
                 // Code to support video here
             }
+
             
         }
+        
     }
     
     // Error messages for user if they incorrectly upload an image or fail to follow procedure
@@ -173,5 +198,6 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
     }
     
+   
     
 }
