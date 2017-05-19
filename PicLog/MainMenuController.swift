@@ -13,6 +13,7 @@ class MainMenuController: UITableViewController {
     
 //This CoreData method I learnt from Bob Lee URL:https://blog.bobthedeveloper.io/beginners-guide-to-core-data-in-swift-3-85292ef4edd
     
+    //Stores Note value to pass into ViewNoteController
     var valueToPass:String!
     
     override func viewDidLoad() {
@@ -29,11 +30,13 @@ class MainMenuController: UITableViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    //Stores retrieve tableview items from the Note Entity
     var notes: [Note] = []
     
     
     
     override func viewWillAppear(_ animated: Bool) {
+        //Retrieves data from CoreData and reloads the tableview to ensure data is current
         getData()
         tableView.reloadData()
     }
@@ -79,8 +82,6 @@ class MainMenuController: UITableViewController {
         tableView.reloadData()
     }
     
-   
-    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.row)!")
@@ -88,6 +89,7 @@ class MainMenuController: UITableViewController {
         let IndexPath = tableView.indexPathForSelectedRow!
         let currentCell = tableView.cellForRow(at: IndexPath)! as UITableViewCell
         
+        //Get the note value from the selected tableview cell
         valueToPass = currentCell.textLabel?.text
         
         performSegue(withIdentifier: "mySegue", sender:self)
@@ -99,6 +101,7 @@ class MainMenuController: UITableViewController {
             //prepare for segue to the details view controller
             if let viewController = segue.destination as? ViewNoteController{
             
+            //Sends Note value to ViewNoteController
             viewController.passedValue = valueToPass
             print("current cell: \(valueToPass)")
             

@@ -12,28 +12,15 @@ import MobileCoreServices
 @available(iOS 10.0, *)
 class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-   
-    
     // Declaring variable for the ImageViews
     @IBOutlet var imageView: UIImageView!
     var newMedia: Bool?
     
     //Textfield that captures user inputs note into
     @IBOutlet weak var noteTextField: UITextField!
+
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //This CoreData method I learnt from Bob Lee URL:https://blog.bobthedeveloper.io/beginners-guide-to-core-data-in-swift-3-85292ef4edd
-    
+    //*This CoreData method I learnt from Bob Lee URL:https://blog.bobthedeveloper.io/beginners-guide-to-core-data-in-swift-3-85292ef4edd
     //Function linked to the Save button in the bottom bar of screen
     @IBAction func buttonTapped(_ sender: UIBarButtonItem) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -41,17 +28,17 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
         
         //Hold note value that will be saved into the Note Entity in CoreData
         let note = Note(context: context)
+        
         //Accesses the user text from the textfield
         note.log = noteTextField.text!
-        // Save the data to coredata
-    
         
+        // Save the data to coredata
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
        
-        
+        //Returns back to MainMenuController
         let _ = navigationController?.popViewController(animated: true)
     }
-    
+    //*End of Bob Lee
    
     
     //This idea to sort in reverse is from a user RAFAEL GARCIA at http://www.appcoda.com/ios-programming-camera-iphone-app/
@@ -88,13 +75,17 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
             
             imageView.image = image
             
+            //*Added into this function by Riley Mills
+            //Deleted UserDefaults Object before creating new one
             let prefs = UserDefaults.standard
             prefs.removeObject(forKey: "image")
+            //Syncs changes before entering new value
             prefs.synchronize()
             
+            //Saves image selected from UIImagePickerController to UserDefaults
             let pngImage = UIImagePNGRepresentation(image)
             UserDefaults.standard.set(pngImage, forKey: "image")
-            
+            //*End of Riley Mills Additions
             
 
             if (newMedia == true) {
@@ -103,14 +94,9 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
             } else if mediaType.isEqual(to: kUTTypeMovie as String) {
                 // Code to support video here
             }
-
-            
         }
-        
     }
-    
-    
-    
+
     
     
     // This idea to sort in reverse is from a user RAFAEL GARCIA at http://www.appcoda.com/ios-programming-camera-iphone-app/
@@ -131,6 +117,13 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
     }
     
-   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
 }
