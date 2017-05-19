@@ -12,7 +12,7 @@ import MobileCoreServices
 @available(iOS 10.0, *)
 class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+   
     
     // Declaring variable for the ImageViews
     @IBOutlet var imageView: UIImageView!
@@ -44,32 +44,17 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
         //Accesses the user text from the textfield
         note.log = noteTextField.text!
         // Save the data to coredata
-        
-        let img = UIImage(named: "CameraIcon.png")
-        let imgData = UIImageJPEGRepresentation(img!, 1)
-        note.setValue(imgData, forKey: "photo")
-        //imgData = UIImage(data: Note.image!)
-       
-        
-        //let imageData = UIImagePNGRepresentation(imageView.image!)
-        //let compresedImage = UIImage(data: imageData!)
-        //UIImageWriteToSavedPhotosAlbum(compresedImage!, nil, nil, nil)
-        
-        
-        //note.setValue(compresedImage, forKey: "photo")
-        //let alert = UIAlertController(title: "Saved", message: "Your image has been saved", preferredStyle: .alert)
-        //let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        //alert.addAction(okAction)
-        //self.present(alert, animated: true, completion: nil)
-        
+    
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
        
+        
         let _ = navigationController?.popViewController(animated: true)
     }
     
-  
+   
     
+    //This idea to sort in reverse is from a user RAFAEL GARCIA at http://www.appcoda.com/ios-programming-camera-iphone-app/
     // Uses the devces camera roll, allwoing the users to access photos from there device
     @IBAction func useCameraRoll(_ sender: AnyObject) {
         
@@ -103,6 +88,14 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
             
             imageView.image = image
             
+            let prefs = UserDefaults.standard
+            prefs.removeObject(forKey: "image")
+            prefs.synchronize()
+            
+            let pngImage = UIImagePNGRepresentation(image)
+            UserDefaults.standard.set(pngImage, forKey: "image")
+            
+            
 
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image, self,
@@ -115,6 +108,10 @@ class NewNoteController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
         
     }
+    
+    
+    
+    
     
     // This idea to sort in reverse is from a user RAFAEL GARCIA at http://www.appcoda.com/ios-programming-camera-iphone-app/
     // Error messages for user if they incorrectly upload an image or fail to follow procedure

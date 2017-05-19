@@ -13,8 +13,8 @@
 		B41988441EA0876200E6FA2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41988421EA0876200E6FA2D /* Main.storyboard */; };
 		B41988461EA0876200E6FA2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B41988451EA0876200E6FA2D /* Assets.xcassets */; };
 		B41988491EA0876200E6FA2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41988471EA0876200E6FA2D /* LaunchScreen.storyboard */; };
-		B419B1391EC1BE66008FAACB /* PicLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B419B1371EC1BE66008FAACB /* PicLog.xcdatamodeld */; };
 		B44714CB1EAF1F190065EF58 /* NewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44714CA1EAF1F190065EF58 /* NewNoteController.swift */; };
+		B49075961ECE9E5F00ABB3C8 /* PicLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B49075941ECE9E5F00ABB3C8 /* PicLog.xcdatamodeld */; };
 		C69E14E61EC43D9300E23F04 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69E14E51EC43D9300E23F04 /* CameraController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +27,8 @@
 		B41988451EA0876200E6FA2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B41988481EA0876200E6FA2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B419884A1EA0876200E6FA2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B419B1381EC1BE66008FAACB /* PicLog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PicLog.xcdatamodel; sourceTree = "<group>"; };
 		B44714CA1EAF1F190065EF58 /* NewNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteController.swift; sourceTree = "<group>"; };
+		B49075951ECE9E5F00ABB3C8 /* PicLog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PicLog.xcdatamodel; sourceTree = "<group>"; };
 		C69E14E51EC43D9300E23F04 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,8 +68,8 @@
 				B44714CA1EAF1F190065EF58 /* NewNoteController.swift */,
 				B4188EAF1EBC70F900B92D8F /* ViewNoteController.swift */,
 				B41988421EA0876200E6FA2D /* Main.storyboard */,
-				B419B1371EC1BE66008FAACB /* PicLog.xcdatamodeld */,
 				B41988451EA0876200E6FA2D /* Assets.xcassets */,
+				B49075941ECE9E5F00ABB3C8 /* PicLog.xcdatamodeld */,
 				B41988471EA0876200E6FA2D /* LaunchScreen.storyboard */,
 				B419884A1EA0876200E6FA2D /* Info.plist */,
 			);
@@ -108,7 +108,7 @@
 				TargetAttributes = {
 					B419883A1EA0876100E6FA2D = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = QD7K23WQK7;
+						DevelopmentTeam = 24SM6522LU;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -150,9 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4188EB01EBC70F900B92D8F /* ViewNoteController.swift in Sources */,
-				B419B1391EC1BE66008FAACB /* PicLog.xcdatamodeld in Sources */,
 				C69E14E61EC43D9300E23F04 /* CameraController.swift in Sources */,
 				B41988411EA0876200E6FA2D /* MainMenuController.swift in Sources */,
+				B49075961ECE9E5F00ABB3C8 /* PicLog.xcdatamodeld in Sources */,
 				B419883F1EA0876100E6FA2D /* AppDelegate.swift in Sources */,
 				B44714CB1EAF1F190065EF58 /* NewNoteController.swift in Sources */,
 			);
@@ -277,7 +277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QD7K23WQK7;
+				DEVELOPMENT_TEAM = 24SM6522LU;
 				INFOPLIST_FILE = PicLog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -291,7 +291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QD7K23WQK7;
+				DEVELOPMENT_TEAM = 24SM6522LU;
 				INFOPLIST_FILE = PicLog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -325,12 +325,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B419B1371EC1BE66008FAACB /* PicLog.xcdatamodeld */ = {
+		B49075941ECE9E5F00ABB3C8 /* PicLog.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B419B1381EC1BE66008FAACB /* PicLog.xcdatamodel */,
+				B49075951ECE9E5F00ABB3C8 /* PicLog.xcdatamodel */,
 			);
-			currentVersion = B419B1381EC1BE66008FAACB /* PicLog.xcdatamodel */;
+			currentVersion = B49075951ECE9E5F00ABB3C8 /* PicLog.xcdatamodel */;
 			path = PicLog.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

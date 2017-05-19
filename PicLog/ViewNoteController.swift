@@ -12,7 +12,6 @@ import UIKit
 @available(iOS 10.0, *)
 class ViewNoteController: UIViewController {
     
-    var notes: [Note] = []
     
     var passedValue: String!
     
@@ -20,32 +19,22 @@ class ViewNoteController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
-  
+    var retrievedImage = UserDefaults.standard.object(forKey: "image") as AnyObject
+   
     
-    func loadImage(imageView: UIImageView){
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        
-        //Hold note value that will be saved into the Note Entity in CoreData
-        let note = Note(context: context)
-        
-        if let imageData = note.value(forKey: "photo") as? NSData{
-            if let image = UIImage(data:imageData as Data){
-                imageView.image = image
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("the passedValue is :\(passedValue)")
         noteLabel.text = passedValue
-    
+        
+        imageView.image = UIImage(data: (retrievedImage as! NSData) as Data)
         
     }
-   
     
+   
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
