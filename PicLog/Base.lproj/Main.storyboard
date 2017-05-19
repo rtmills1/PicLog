@@ -57,16 +57,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hU-aA-hXG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hU-aA-hXG">
                                 <rect key="frame" x="115" y="72" width="144" height="137"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera" image="CameraIcon"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="137" id="7Pj-9o-ula"/>
+                                </constraints>
+                                <state key="normal" title="Camera" image="Icon-60"/>
                                 <connections>
                                     <action selector="useCamera:" destination="A2H-8N-U8i" eventType="touchUpInside" id="sxZ-VB-cty"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2hU-aA-hXG" firstAttribute="top" secondItem="G1b-Nn-tJq" secondAttribute="bottom" constant="8" symbolic="YES" id="5cR-iq-jdT"/>
+                            <constraint firstItem="2hU-aA-hXG" firstAttribute="leading" secondItem="e6w-vW-Lk4" secondAttribute="leadingMargin" constant="99" id="86i-9q-eDM"/>
+                            <constraint firstItem="2hU-aA-hXG" firstAttribute="centerX" secondItem="e6w-vW-Lk4" secondAttribute="centerX" id="Jlm-8k-9pE"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4M-mE-JUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -85,7 +92,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CameraIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9lE-qf-HDE">
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="9lE-qf-HDE">
                                 <rect key="frame" x="21" y="141" width="333" height="168"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9lE-qf-HDE" secondAttribute="height" multiplier="111:56" id="ETI-iI-NbM"/>
@@ -163,8 +170,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CameraIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A8U-D7-E3h">
-                                <rect key="frame" x="37.5" y="186" width="300" height="170"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="A8U-D7-E3h">
+                                <rect key="frame" x="179.5" y="186" width="16" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="Cpf-Yi-SKG"/>
                                 </constraints>
@@ -219,7 +226,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CameraIcon" width="300" height="300"/>
+        <image name="Icon-60" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1y0-Xh-P4t"/>
